@@ -1,0 +1,22 @@
+# Python scripts (utility, not for production)
+crop-photo.py
+remove-bg.py
+capture-screenshots.js
+
+# Claude config (lokal)
+.claude/
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node modules (kalau pakai)
+node_modules/
+
+# Python cache
+__pycache__/
+*.pyc

@@ -1,24 +1,447 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jerrel Adriel — Fullstack Developer & AI Enthusiast</title>
+  <link rel="stylesheet" href="portfolio.css?v=3" />
 </head>
 <body>
-    <audio id="sound" src="assets/Neverland.mp3" loop="loop"></audio>
-    <div class="container">
-        <h3>Jump Game</h3>
-        <div id="game">
-            <div id="karakter"></div>
-            <div id="rintangan"></div>
-            <div id="start"></div>
-            <div id="startgame"></div>
-        </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <span class="nav-logo">JA</span>
+      <ul class="nav-links">
+        <li><a href="#about-detail" data-i="nav.about">About</a></li>
+        <li><a href="#experience" data-i="nav.experience">Experience</a></li>
+        <li><a href="#projects" data-i="nav.projects">Projects</a></li>
+        <li><a href="#skills" data-i="nav.skills">Skills</a></li>
+        <li><a href="#contact" data-i="nav.contact">Contact</a></li>
+      </ul>
+      <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">
+        <span class="lang-current">EN</span>
+        <span class="lang-sep">/</span>
+        <span class="lang-other">ID</span>
+      </button>
     </div>
-    <script src="script.js"></script>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="about">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge" data-i="hero.badge">Available for work</div>
+      <h1 class="hero-name">Jerrel <span class="accent">Adriel</span></h1>
+      <p class="hero-tagline" data-i="hero.tagline">Fullstack Developer & AI Enthusiast</p>
+      <p class="hero-desc" data-i="hero.desc">
+        Building modern web applications, intelligent bots, and AI systems that run
+        across multiple platforms. Passionate about technology that delivers real impact.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-primary" data-i="hero.btnProjects">View Projects</a>
+        <a href="#contact" class="btn btn-ghost" data-i="hero.btnContact">Contact Me</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="avatar-ring">
+        <div class="avatar">
+          <img src="assets/profile/jerrel.png" alt="Jerrel Adriel"
+               onerror="this.style.display='none'; this.parentElement.textContent='JA';" />
+        </div>
+      </div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section section-dark" id="about-detail">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i="about.tag">About Me</span>
+        <h2 data-i="about.title">About</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-photo">
+          <div class="photo-frame">
+            <img src="assets/profile/jerrel.png" alt="Jerrel Adriel"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');" />
+            <span class="photo-fallback">JA</span>
+          </div>
+          <div class="about-badges">
+            <span class="badge-mini">📍 Jakarta, Indonesia</span>
+            <span class="badge-mini" data-i="about.badge2">💼 Fullstack @ Huawei</span>
+            <span class="badge-mini">🎓 Universitas Sriwijaya</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <h3 data-i="about.greeting">Hi, I'm Jerrel Adriel 👋</h3>
+          <p data-i="about.p1">
+            Jakarta-based Fullstack Developer with over a year of professional experience
+            building and maintaining web & mobile applications. Currently contributing to
+            the <b>Surge</b> project at PT Huawei Tech Investment as part of XL Axiata's
+            transformation into XLSMART.
+          </p>
+          <p data-i="about.p2">
+            Graduate of <b>Informatics Engineering at Universitas Sriwijaya</b> (GPA 3.55)
+            with research experience in deep learning–based brain tumor image classification.
+            Skilled in JavaScript, React, Node.js, Express, Java, and Python — with strong
+            interests in web development, system integration, and machine learning.
+          </p>
+
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-num">1+</div>
+              <div class="stat-label" data-i="about.stat1">Year Experience</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">5+</div>
+              <div class="stat-label" data-i="about.stat2">Projects</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">3.55</div>
+              <div class="stat-label" data-i="about.stat3">GPA / 4.00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i="exp.tag">Career Journey</span>
+        <h2 data-i="exp.title">Work Experience</h2>
+        <p data-i="exp.subtitle">My professional career path</p>
+      </div>
+
+      <div class="timeline">
+
+        <!-- Surge Project (Current) -->
+        <div class="timeline-item">
+          <div class="timeline-dot current"></div>
+          <div class="timeline-content">
+            <div class="timeline-head">
+              <div>
+                <h4>Fullstack Developer — Surge Project</h4>
+                <p class="company">PT Huawei Tech Investment · Jakarta Selatan</p>
+              </div>
+              <span class="period current-period" data-i="exp.surge.period">Apr 2026 — Present</span>
+            </div>
+            <p class="role-desc" data-i="exp.surge.desc">
+              Developing an internal JavaScript-based application for the NOC
+              (Network Operations Center) for monitoring & operational response.
+            </p>
+            <ul class="role-points" data-i-html="exp.surge.list">
+              <li>Enhance the <b>Incident Ticket</b> feature to auto-generate when an alarm goes down</li>
+              <li>Implemented <b>WhatsApp auto notification</b> for Incident Tickets — faster response time</li>
+              <li>Built a dynamic <b>Excel Reporting</b> feature filtered per user data</li>
+            </ul>
+            <div class="role-tags">
+              <span>JavaScript</span><span>Node.js</span><span>WhatsApp API</span><span>Excel</span><span>NOC</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- XLSMART Project -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-head">
+              <div>
+                <h4>Fullstack Developer — XLSMART Project</h4>
+                <p class="company">PT Huawei Tech Investment · Jakarta Selatan</p>
+              </div>
+              <span class="period" data-i="exp.xlsmart.period">Aug 2024 — Mar 2026</span>
+            </div>
+            <p class="role-desc" data-i="exp.xlsmart.desc">
+              Key contributor on the revamp of XL Axiata web & mobile into XLSMART,
+              improving UX and integration with external systems.
+            </p>
+            <ul class="role-points" data-i-html="exp.xlsmart.list">
+              <li>Led the revamp of <b>XLHome</b> web & mobile — UX & UI overhaul</li>
+              <li>Revamped <b>XLDrive</b> web & mobile for the XL sales team</li>
+              <li>Developed <b>Campaign Management</b> (pop-ups, banners, push notifications) for sales</li>
+              <li>Led <b>API integration</b> with OCR & the Indonesian Tax Directorate (DJP) for NPWP validation</li>
+              <li>Developed <b>Points Management</b> integrated with banks & e-wallets</li>
+              <li>Designed & implemented a <b>Development Tracking System</b> for documentation management</li>
+              <li>Enhanced the <b>Trouble Ticketing System</b> & provided application troubleshooting support</li>
+            </ul>
+            <div class="role-tags">
+              <span>React</span><span>Next.js</span><span>Node.js</span><span>Express</span><span>REST API</span><span>OCR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pelindo Internship -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-head">
+              <div>
+                <h4 data-i="exp.intern.title">IT Operation Support — Internship (Magenta)</h4>
+                <p class="company">PT Pelindo Multi Terminal · Belawan, North Sumatra</p>
+              </div>
+              <span class="period" data-i="exp.intern.period">Oct 2023 — Aug 2024</span>
+            </div>
+            <p class="role-desc" data-i="exp.intern.desc">
+              Internship under the <b>Magenta</b> program in the IT division — operational
+              support and internal application development for the Engineering Warehouse.
+            </p>
+            <ul class="role-points" data-i-html="exp.intern.list">
+              <li>Provided technical support for troubleshooting internal software & hardware</li>
+              <li>Developed a web-based application <b>(Stockop / jStock)</b> for asset monitoring & utilization in Gudang Teknik</li>
+            </ul>
+            <div class="role-tags">
+              <span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind</span><span>IT Support</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section section-dark" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i="proj.tag">Portfolio</span>
+        <h2 data-i="proj.title">Projects</h2>
+        <p data-i="proj.subtitle">Some of the projects I've built</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Agent-JR -->
+        <div class="project-card featured">
+          <div class="project-badge" data-i="proj.featured">Featured</div>
+          <div class="project-thumb" data-screenshots="agent-jr" data-title="Agent-JR">
+            <img src="assets/screenshots/agent-jr/01-main.png?v=2" alt="Agent-JR preview" loading="lazy" />
+            <div class="thumb-overlay"><span data-i="proj.viewPreview">🔍 View Preview</span></div>
+          </div>
+          <div class="project-body">
+            <div class="project-icon">🤖</div>
+            <h3>Agent-JR</h3>
+            <p data-i="proj.agentjr.desc">Multi-platform personal AI assistant with automatic fallback from Claude → Groq.
+               Available as a website, WhatsApp bot, and desktop app.</p>
+            <div class="project-tags">
+              <span>Python</span><span>FastAPI</span><span>Claude AI</span>
+              <span>Groq</span><span>WhatsApp</span><span>Electron</span>
+            </div>
+            <div class="project-links">
+              <button class="link-btn preview-btn" data-screenshots="agent-jr" data-title="Agent-JR" data-i="proj.preview">Preview</button>
+              <a href="https://github.com/JerrelAdriel" class="link-btn ghost" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brain Tumor -->
+        <div class="project-card">
+          <div class="project-thumb" data-screenshots="brain-tumor" data-title="Brain Tumor Classification">
+            <img src="assets/screenshots/brain-tumor/01-home.png?v=3" alt="Brain Tumor preview" loading="lazy" />
+            <div class="thumb-overlay"><span data-i="proj.viewPreview">🔍 View Preview</span></div>
+          </div>
+          <div class="project-body">
+            <div class="project-icon">🧠</div>
+            <h3>Brain Tumor Classification</h3>
+            <p data-i="proj.brain.desc">Web app for brain tumor classification from MRI images using
+               deep learning (VGG16). High accuracy in detecting tumor types.</p>
+            <div class="project-tags">
+              <span>Python</span><span>Flask</span><span>TensorFlow</span>
+              <span>VGG16</span><span>Deep Learning</span>
+            </div>
+            <div class="project-links">
+              <button class="link-btn preview-btn" data-screenshots="brain-tumor" data-title="Brain Tumor Classification" data-i="proj.preview">Preview</button>
+              <a href="https://github.com/JerrelAdriel" class="link-btn ghost" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lelang Binar -->
+        <div class="project-card">
+          <div class="project-thumb" data-screenshots="lelang" data-title="Lelang Binar (Second Hand)">
+            <img src="assets/screenshots/lelang/02-produk.png?v=4" alt="Lelang Binar preview" loading="lazy" />
+            <div class="thumb-overlay"><span data-i="proj.viewPreview">🔍 View Preview</span></div>
+          </div>
+          <div class="project-body">
+            <div class="project-icon">🔨</div>
+            <h3>Lelang Binar (Second Hand)</h3>
+            <p data-i="proj.lelang.desc">A second-hand auction e-commerce app. Users can list products,
+               place bids, and manage transactions. Final project at Binar Academy.</p>
+            <div class="project-tags">
+              <span>React.js</span><span>React Bootstrap</span><span>Node.js</span>
+              <span>REST API</span><span>JWT Auth</span>
+            </div>
+            <div class="project-links">
+              <button class="link-btn preview-btn" data-screenshots="lelang" data-title="Lelang Binar (Second Hand)" data-i="proj.preview">Preview</button>
+              <a href="https://github.com/JerrelAdriel" class="link-btn ghost" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stockop -->
+        <div class="project-card">
+          <div class="project-thumb" data-screenshots="stockop" data-title="Stockop — Gudang Teknik">
+            <img src="assets/screenshots/stockop/03-peminjaman.png?v=3" alt="Stockop preview" loading="lazy" />
+            <div class="thumb-overlay"><span data-i="proj.viewPreview">🔍 View Preview</span></div>
+          </div>
+          <div class="project-body">
+            <div class="project-icon">📦</div>
+            <h3>Stockop (jStock)</h3>
+            <p data-i="proj.stockop.desc">Stock management system for Gudang Teknik Branch Belawan. Inventory
+               dashboard, reports, Excel export, and multi-user roles.</p>
+            <div class="project-tags">
+              <span>Next.js</span><span>React</span><span>TypeScript</span>
+              <span>Tailwind</span><span>NextUI</span>
+            </div>
+            <div class="project-links">
+              <button class="link-btn preview-btn" data-screenshots="stockop" data-title="Stockop — Gudang Teknik" data-i="proj.preview">Preview</button>
+              <a href="https://github.com/JerrelAdriel" class="link-btn ghost" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jump Game -->
+        <div class="project-card">
+          <div class="project-thumb" data-screenshots="jump-game" data-title="Jump Game">
+            <img src="assets/screenshots/jump-game/02-gameplay.png" alt="Jump Game preview" loading="lazy" />
+            <div class="thumb-overlay"><span data-i="proj.viewPreview">🔍 View Preview</span></div>
+          </div>
+          <div class="project-body">
+            <div class="project-icon">🦕</div>
+            <h3>Jump Game</h3>
+            <p data-i="proj.game.desc">HTML5 browser game with physics-based jumping, double jump,
+               random obstacles (ground/air), and localStorage high score.</p>
+            <div class="project-tags">
+              <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Game Dev</span>
+            </div>
+            <div class="project-links">
+              <a href="jump-game.html" class="link-btn" target="_blank" data-i="proj.playNow">🎮 Play Now</a>
+              <button class="link-btn ghost preview-btn" data-screenshots="jump-game" data-title="Jump Game" data-i="proj.preview">Preview</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- LIGHTBOX MODAL -->
+      <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true">
+        <button class="lb-close" aria-label="Close">×</button>
+        <button class="lb-prev" aria-label="Previous">‹</button>
+        <button class="lb-next" aria-label="Next">›</button>
+        <div class="lb-content">
+          <h3 class="lb-title"></h3>
+          <img class="lb-img" alt="" />
+          <div class="lb-counter"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i="skills.tag">Expertise</span>
+        <h2 data-i="skills.title">Skills</h2>
+        <p data-i="skills.subtitle">Technologies I work with</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h4>Backend</h4>
+          <div class="skill-list">
+            <div class="skill-item"><span class="skill-dot"></span>Python</div>
+            <div class="skill-item"><span class="skill-dot"></span>FastAPI</div>
+            <div class="skill-item"><span class="skill-dot"></span>Node.js & Express</div>
+            <div class="skill-item"><span class="skill-dot"></span>Java</div>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Frontend</h4>
+          <div class="skill-list">
+            <div class="skill-item"><span class="skill-dot"></span>HTML5 & CSS3</div>
+            <div class="skill-item"><span class="skill-dot"></span>JavaScript & TypeScript</div>
+            <div class="skill-item"><span class="skill-dot"></span>React.js & Next.js</div>
+            <div class="skill-item"><span class="skill-dot"></span>Tailwind CSS</div>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>AI & ML</h4>
+          <div class="skill-list">
+            <div class="skill-item"><span class="skill-dot"></span>Claude API</div>
+            <div class="skill-item"><span class="skill-dot"></span>Groq / LLaMA</div>
+            <div class="skill-item"><span class="skill-dot"></span>TensorFlow / Keras</div>
+            <div class="skill-item"><span class="skill-dot"></span>Prompt Engineering</div>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Tools</h4>
+          <div class="skill-list">
+            <div class="skill-item"><span class="skill-dot"></span>Git & GitHub</div>
+            <div class="skill-item"><span class="skill-dot"></span>SQL & NoSQL</div>
+            <div class="skill-item"><span class="skill-dot"></span>REST API Design</div>
+            <div class="skill-item"><span class="skill-dot"></span>Electron</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section-dark" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i="contact.tag">Get in Touch</span>
+        <h2 data-i="contact.title">Contact</h2>
+        <p data-i="contact.subtitle">Let's collaborate or just have a chat</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-info">
+          <a href="mailto:jerreladriel@gmail.com" class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">jerreladriel@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://wa.me/6281262059002" class="contact-item" target="_blank">
+            <div class="contact-icon">📱</div>
+            <div>
+              <div class="contact-label">WhatsApp</div>
+              <div class="contact-value">+62 812-6205-9002</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/jerrelhutahaean" class="contact-item" target="_blank">
+            <div class="contact-icon">💼</div>
+            <div>
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value">jerrelhutahaean</div>
+            </div>
+          </a>
+          <a href="https://github.com/JerrelAdriel" class="contact-item" target="_blank">
+            <div class="contact-icon">💻</div>
+            <div>
+              <div class="contact-label">GitHub</div>
+              <div class="contact-value">JerrelAdriel</div>
+            </div>
+          </a>
+        </div>
+        <a href="mailto:jerreladriel@gmail.com" class="btn btn-primary" data-i="contact.btn">Send Email</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p data-i="footer.text">© 2026 Jerrel Adriel · Fullstack Developer & AI Enthusiast</p>
+    <p class="footer-sub" data-i="footer.sub">Built with ❤️ and lots of ☕</p>
+  </footer>
+
+  <script src="i18n.js?v=1"></script>
+  <script src="portfolio.js?v=3"></script>
 </body>
 </html>

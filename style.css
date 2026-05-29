@@ -1,112 +1,202 @@
-body{
-    background: lightgreen;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #1a1a2e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
 }
-h3{
-    position: relative;
-    top: -50px;
+
+h3 {
+  color: #fff;
+  font-size: clamp(18px, 4vw, 28px);
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
+
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 100px;
-    background: url(assets/BG.png);
-    background-size:contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
 }
 
-.scoretext{
-    position: relative;
-    left: 600px;
-    top: -150px;
+/* Score & info bar */
+.info-bar {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 12px;
+  color: #a78bfa;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
+.info-bar span b { color: #fff; margin-left: 6px; }
 
-#score{
-    position: relative;
-    left: 635px;
-    top: -168px;
-}
-
-.startgame::before{
-    padding: 5px 7px;
-    content: 'Start Game';
-    border: 2px solid black;
-    border-radius: 10px;
-    position: relative;
-    left: 47%;
-    cursor: pointer;
-    bottom: 120px;
-}
-.startgame:active{
-    top: 5px;
-    position: relative;
-}
-
+/* Game area */
 #game {
-    width: 100%;
-    height: 200px;
-    border-bottom: 4px solid green;
-    overflow: hidden;
+  position: relative;
+  width: min(720px, 95vw);
+  height: min(280px, 42vw);
+  min-height: 200px;
+  background: url(assets/BG.png) center/cover no-repeat;
+  border: 3px solid #7c3aed;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(124, 58, 237, 0.3);
+  touch-action: manipulation;
 }
 
+/* Ground line */
+#game::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: #22c55e;
+  z-index: 1;
+}
+
+/* Character — only animates background sprite (jalan) */
 #karakter {
-    position: relative;
-    width: 50px;
-    height: 80px;
-    background: url(assets/karakter.png);
-    top: 125px; 
-    left: 50px;
+  position: absolute;
+  width: 50px;
+  height: 80px;
+  background: url(assets/karakter.png) 0 0 no-repeat;
+  background-size: auto 100%;
+  left: 60px;
+  bottom: 4px;
+  z-index: 3;
+  will-change: transform;
 }
 
-#rintangan {
-    width: 57px;
-    height: 57px;
-    background: url(assets/Crate.png);
-    left: 95%; 
-    top: 65px;	
-    position: relative;
+#karakter.animasiJalan {
+  animation: jalan 0.5s steps(8) infinite;
 }
 
-.play-again::before{
-    padding: 5px 7px;
-    content: 'Play Again?';
-    border: 2px solid black;
-    border-radius: 10px;
-    position: relative;
-    left: 47%;
-    cursor: pointer;
-    bottom: 120px;
+@keyframes jalan {
+  from { background-position: 0 0; }
+  to   { background-position: -400px 0; }
 }
 
-.play-again:active{
-    top: 5px;
-    position: relative;
+/* Obstacle base */
+.rintangan {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: 2;
+  will-change: transform;
 }
 
-
-.animasiLompat {
-    animation: lompat 300ms linear, lari 1s steps(8) infinite ;
+/* Ground obstacle (crate) */
+.rintangan.ground {
+  width: 55px;
+  height: 55px;
+  background-image: url(assets/Crate.png);
+  bottom: 4px;
 }
 
-.animasiRintangan {
-    animation: rintangan 2.5s infinite linear ;
-    
+/* Air obstacle (flying box) - higher position */
+.rintangan.air {
+  width: 50px;
+  height: 50px;
+  background-image: url(assets/Crate.png);
+  bottom: 80px;
+  filter: drop-shadow(0 0 8px rgba(252, 211, 77, 0.8));
 }
 
-@keyframes lompat{
-    0%{top: 100px}
-    20%{top: 70px}
-    40%{top: 60px}
-    60%{top: 60px}
-    80%{top: 70px}
-    100%{top:100px}
+/* Air obstacle indicator */
+.rintangan.air::before {
+  content: '↑';
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fcd34d;
+  font-size: 18px;
+  font-weight: bold;
+  animation: bob 1s ease-in-out infinite;
 }
 
-@keyframes rintangan {
-    0%{left: 95%}
-    100%{left: -20px}
+@keyframes bob {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-4px); }
 }
 
-@keyframes lari {
-    0%{background-position: 0px 0px;}
-    100%{background-position: -400px 0px;}
+/* Overlay (start / game over) */
+#overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(4px);
+  gap: 14px;
+  z-index: 10;
+  padding: 20px;
 }
+
+#overlay.hidden { display: none; }
+
+#overlay h2 {
+  color: #fff;
+  font-size: clamp(18px, 4vw, 26px);
+  text-align: center;
+}
+
+#overlay .info {
+  color: #a78bfa;
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+#overlay .final-score {
+  color: #fcd34d;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+#overlay button {
+  padding: 12px 32px;
+  background: #7c3aed;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  letter-spacing: 0.5px;
+}
+
+#overlay button:hover { background: #9f67ff; }
+#overlay button:active { transform: scale(0.97); }
+
+.hint {
+  color: #666;
+  font-size: 13px;
+  margin-top: 12px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.back-link {
+  color: #7c3aed;
+  font-size: 13px;
+  margin-top: 8px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+.back-link:hover { color: #9f67ff; }
